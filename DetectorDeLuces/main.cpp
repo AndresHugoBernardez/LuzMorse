@@ -129,11 +129,12 @@ public:
         float distanciaP2,RR;
  
 
-        if (radio < 10) RR = 20;
-        else RR = radio*separacion;
+        if (radio < 5) RR = 100;
+        else RR = radio*radio*separacion;
         
+       
 
-            distanciaP2 = (float)distancia(x, y);
+            distanciaP2 = (float)distanciaCuadrada(x, y);
             if ((distanciaP2 - RR) > 0) return(1);
             else return(0);
 
@@ -198,7 +199,7 @@ int main() {
                 encontrado = 0;
                 while (k < N && !encontrado) {
 
-                    if(localizaciones[k].fueraDeAlcance(i, j, 2)) k++;
+                    if(localizaciones[k].fueraDeAlcance(i, j)) k++;
                     else {
                         encontrado = 1;
                         actualizar = 0;
