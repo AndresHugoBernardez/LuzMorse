@@ -60,8 +60,8 @@ public:
     int getDiametro() {
         
 
-        width = x2 - x1;
-        height = y2 - y1;
+        width = y2 - y1;
+        height = x2 - x1;
         if (width < height) diametro = height;
         else diametro = width;
 
@@ -242,7 +242,7 @@ int main() {
 
     for (k = 0; k < N; k++) {
         rectangle(A,
-            Rect(localizaciones[k].y1, localizaciones[k].x1, localizaciones[k].width, localizaciones[k].height),
+            Rect(Point(localizaciones[k].y1, localizaciones[k].x1),Point(localizaciones[k].y2+1, localizaciones[k].x2+1)),
             Scalar(100),
             1,
             LINE_8,
